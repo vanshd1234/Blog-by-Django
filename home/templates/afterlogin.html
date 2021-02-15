@@ -1,0 +1,42 @@
+{% extends 'second.html' %}
+{% block afterlog %}
+
+<h1>Blog Insert</h1>
+<!--form-stars-here-->
+		<center><div class="main-w3-agile">
+			<!--form-header-->
+			<div class="form-header-agileinfo">
+					<p>*required field</p>
+				<div class="clear"></div>
+			</div>
+			<div class="main-sub-w3-agile">
+			<p class="header-botm-w3-agile">FIll the blog</p>
+			<!--//form-header-->
+			<!--form-->
+				<form action="/afterlogin/" method="POST">
+					{% csrf_token %}
+					{{msg}}
+							
+						<p>Title*</p>
+							<input type="text" name="title" placeholder="" required="" />
+						<p>Your Blog</p>
+							<textarea name="post" placeholder=""></textarea>
+							<p>Categories</p>
+						<select name="category" id="">
+							{% for category in categories %}
+							<option value="{{category.name}}"> {{category.name}}</option>
+							{% endfor %}
+						</select>
+								
+							
+								<div class="submit-button">
+									<input type="submit" value="Post Blog" />
+
+				</form>
+			<!--//form-->
+			<!--contact-->
+			
+		</div></center>
+<!--//form-ends-here-->
+
+{% endblock %}
